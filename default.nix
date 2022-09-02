@@ -13,11 +13,12 @@ rec{
   apollo = callPackage ./apollo { inherit pkgs; };
   apollo-qtpy = apollo.overrideAttrs (oldAttrs: {
     APOLLO_BOARD = "qtpy";
-    src = fetchgit {
-      url = "https://github.com/mkj/apollo.git";
-      deepClone = true;
+    src = fetchFromGitHub {
+      owner = "greatscottgadgets";
+      repo = "apollo";
       rev = "e7adeb93bcf2c67cb623e8bb278e68416c39fceb";
-      sha256 = "14hp7ll8ks9m3srgf9ajkr7pmmzfr4isp2fc6135slmkshs5q7kn";
+      sha256 = "09b1dn3sav5j68ad198hkd4cxzxch5ll7w149vgdd7wlj6qkj59f";
+      fetchSubmodules = true;
     };
   });
 }

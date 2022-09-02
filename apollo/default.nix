@@ -7,13 +7,14 @@
 
 with pkgs;
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   name = "apollo";
-  src = fetchgit {
-    url = "https://github.com/greatscottgadgets/apollo.git";
-    deepClone = true;
+  src = fetchFromGitHub {
+    owner = "greatscottgadgets";
+    repo = "apollo";
     rev = "1207a45559c2c5fdfcd29ff18e2005a091c4412f";
-    sha256 = "1yvqvzaj24l6mhb67vx37zvrn3y9qnzr3wm1j7ll0h35nqfjdq58";
+    sha256 = "1qn14p3fcnx7vq0gqf0j9h2gjg10c3lvzc9lmcbbhfsaz5f1jp0q";
+    fetchSubmodules = true;
   };
   APOLLO_BOARD = "luna";
   makeFlags = [ "-C" "firmware" ];
